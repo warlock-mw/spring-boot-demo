@@ -20,6 +20,6 @@ public class HelloController {
     model.addAttribute("domain", domain);
 
 
-    return "Hello/hello";
+    return "user/hello/hello";
   }
 }

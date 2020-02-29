@@ -1,12 +1,11 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <title>Hello</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  </head>
-  <body>
+<html
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{user/common/layout}">
+  <div layout:fragment="contents">
     <p>test</p>
-    <table border="1" th:unless="${#lists.isEmpty(domain.userList)}">
+        <table border="1" th:unless="${#lists.isEmpty(domain.userList)}">
       <tr>
         <th>ID</th>
         <th>ユーザー</th>
@@ -18,5 +17,5 @@
         <td th:text="${val.email}"></td>
       </tr>
     </table>
-  </body>
+  </div>
 </html>
