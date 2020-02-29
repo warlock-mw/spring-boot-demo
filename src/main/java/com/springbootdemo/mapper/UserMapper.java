@@ -14,5 +14,5 @@ public interface UserMapper {
 
   boolean update(UserEntity userEntity);
 
-  boolean delte(int id);
+  boolean delete(int id);
 }

@@ -28,6 +28,6 @@ public class UserRepository {
   }
 
   public boolean delete(int id) {
-    return mapper.delte(id);
+    return mapper.delete(id);
   }
 }

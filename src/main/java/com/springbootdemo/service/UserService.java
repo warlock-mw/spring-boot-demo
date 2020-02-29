@@ -57,4 +57,8 @@ public class UserService {
 
     return result;
   }
+
+  public boolean delete(String id) {
+    return repository.delete(Integer.parseInt(id));
+  }
 }

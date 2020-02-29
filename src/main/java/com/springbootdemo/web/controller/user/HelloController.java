@@ -70,7 +70,7 @@ public class HelloController {
   }
 
   @PostMapping("/user/edit/{userId}")
-  public String updsate(@PathVariable("userId") String userId,
+  public String update(@PathVariable("userId") String userId,
       @Validated @ModelAttribute UserForm userForm, BindingResult result, Model model) {
     if (result.hasErrors()) {
       var errorList = result.getAllErrors().stream().map(e -> e.getDefaultMessage())
@@ -82,6 +82,13 @@ public class HelloController {
     }
 
     userService.update(userForm, userId);
+
+    return "redirect:/";
+  }
+
+  @PostMapping("user/delete/{userId}")
+  public String delete(@PathVariable("userId") String userId) {
+    userService.delete(userId);
 
     return "redirect:/";
   }

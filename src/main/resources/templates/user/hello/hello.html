@@ -18,7 +18,11 @@
         <td th:text="${val.name}"></td>
         <td th:text="${val.email}"></td>
         <td><a th:href="@{/user/edit/{userId}(userId=${val.id})}">編集</a>
-        <td></td>
+        <td>
+          <form th:action="@{/user/delete/{userId}(userId=${val.id})}" method="post">
+            <button type="submit" onclick="return confirm('削除しますか')">削除</button>
+          </form>
+        </td>
       </tr>
     </table>
   </div>
