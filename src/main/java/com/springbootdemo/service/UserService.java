@@ -1,5 +1,6 @@
 package com.springbootdemo.service;
 
+import java.util.Optional;
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,6 +29,31 @@ public class UserService {
   public boolean create(UserForm userForm) {
     var entity = UserEntity.formToEntity(userForm);
     var result = repository.insert(entity);
+
+    return result;
+  }
+
+  public UserForm initForm() {
+    return new UserForm();
+  }
+
+  public UserForm makeForm(String id) {
+    var entity = Optional.ofNullable(repository.get(Integer.parseInt(id)));
+
+    if (!entity.isPresent()) {
+      return null;
+    }
+
+    var form = UserForm.formToEntity(entity.get());
+
+    return form;
+  }
+
+  public boolean update(UserForm userForm, String id) {
+    var entity = UserEntity.formToEntity(userForm);
+    entity.setId(Integer.parseInt(id));
+
+    var result = repository.update(entity);
 
     return result;
   }

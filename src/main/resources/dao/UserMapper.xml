@@ -12,7 +12,7 @@
     INSERT INTO users (name, email, password) VALUES (#{name}, #{email}, #{password})
   </insert>
   <update id="update" parameterType="com.springbootdemo.entity.UserEntity">
-    UPDATE users SET name = #{name}, email = #{email}, password = #{password}
+    UPDATE users SET name = #{name}, email = #{email}, password = #{password} WHERE id = #{id}
   </update>
   <delete id="delete" parameterType="int">
     DELETE FROM users WHERE id = #{id}

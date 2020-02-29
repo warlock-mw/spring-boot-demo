@@ -9,12 +9,16 @@
       <tr>
         <th>ID</th>
         <th>ユーザー</th>
-        <th>Email</th>
+        <th>メールアドレス</th>
+        <th>編集</th>
+        <th>削除</th>
       </tr>
       <tr th:each="val : ${domain.userList}">
         <td th:text="${val.id}"></td>
         <td th:text="${val.name}"></td>
         <td th:text="${val.email}"></td>
+        <td><a th:href="@{/user/edit/{userId}(userId=${val.id})}">編集</a>
+        <td></td>
       </tr>
     </table>
   </div>
