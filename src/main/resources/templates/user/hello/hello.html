@@ -4,8 +4,8 @@
   xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
   layout:decorate="~{user/common/layout}">
   <div layout:fragment="contents">
-    <p>test</p>
-        <table border="1" th:unless="${#lists.isEmpty(domain.userList)}">
+    <p><a th:href="@{/user/add}">追加する</a></p>
+    <table border="1" th:unless="${#lists.isEmpty(domain.userList)}">
       <tr>
         <th>ID</th>
         <th>ユーザー</th>

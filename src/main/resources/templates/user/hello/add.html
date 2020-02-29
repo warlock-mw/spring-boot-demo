@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{user/common/layout}">
+  <div layout:fragment="contents">
+    <p><a th:href="@{/}">一覧へ戻る</a></p>
+    <form th:acton="@{/user/add}" th:object="${userForm}" th:method="post">
+      <ul th:if="${validationError}" th:each="error : ${validationError}">
+        <li th:text="${error}"></li>
+      </ul>
+      <table border="1">
+        <tr>
+          <th>ユーザー</th>
+          <td><input type="text" th:field="*{name}" /></td>
+        </tr>
+        <tr>
+          <th>メールアドレス</th>
+          <td><input type="text" th:field="*{email}" /></td>
+        </tr>
+        <tr>
+          <th>パスワード</th>
+          <td><input type="password" th:field="*{password}" /></td>
+        </tr>
+      </table>
+      <p><button type="submit">追加する</button>
+    </form>
+  </div>
+</html>
