@@ -11,7 +11,7 @@ import org.springframework.core.io.support.ResourcePatternResolver;
 import org.springframework.core.io.support.ResourcePatternUtils;
 
 @Configuration
-@MapperScan("com.springbootdemo.app.dao")
+@MapperScan("com.springbootdemo.mapper")
 public class DataConfig {
 
   @Bean
@@ -20,8 +20,6 @@ public class DataConfig {
     factory.setDataSource(dataSource);
     ResourcePatternResolver resolver =
         ResourcePatternUtils.getResourcePatternResolver(new DefaultResourceLoader());
-
-    factory.setConfigLocation(resolver.getResource("classpath:mybatis-config.xml"));
 
     factory.setMapperLocations(resolver.getResources("classpath:dao/**/*.xml"));
 
